@@ -6,7 +6,6 @@ import About from './Pages/About';
 import One from './Pages/One';
 import Two from './Pages/Two';
 import Three from './Pages/Three';
-import Four from './Pages/Four';
 import Navbar from './Components/Navbar';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
 			<Route path="/One" element={<One />} />
 			<Route path="/Two" element={<Two />} />
 			<Route path="/Three" element={<Three />} />
-			<Route path="/Four" element={<Four />} />
 		</Routes>
 	</BrowserRouter>
     </>

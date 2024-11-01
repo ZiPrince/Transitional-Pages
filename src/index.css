@@ -10,8 +10,7 @@ a:hover {
 
 body {
 	margin: 0;
-	min-width: 320px;
-	min-height: 100vh;
+	min-width: 700px;
 	font-size: 2vw;
 	color: rgb(1, 8, 14);
 }

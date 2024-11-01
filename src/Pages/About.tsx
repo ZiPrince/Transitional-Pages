@@ -1,4 +1,3 @@
-import FallingTransition from "../Components/FallingTransition"
 
 const About = () => {
 
@@ -7,6 +6,7 @@ const About = () => {
 	<>
 	<div className="about">
 		<div className="text">Where is this text?</div>
+		<div className="boxCircle">hi</div>
 
 	</div>
 
