@@ -122,14 +122,14 @@
 	width: 100vw;
 	height:89vh;
 	display: flex;
+
 }
 
 .homeContainer {
-	padding: 10px;
-	margin-left: 10%;
-	margin-top:12%;
+	margin-left: 4%;
+	margin-top:10%;
 	font-size: 6vw;
-	width: 39%;
+	width: 49%;
 }
 
 .bestTeams { 
@@ -144,20 +144,35 @@
 }
 
 .homePhotosContainer { 
-	margin-top:9%;
+	margin-top:4%;
+	margin-right: -6%;
 	display: flex;
-	align-items: flex-start;
 }
 
 .dogBig1img{ 
-	width: 37vw;
-	height: 44vw;
-	animation-name: cover-enter;
-	animation-duration: 2s; 
+	width: 33vw;
+	height: 42vw;
+	object-fit:cover;
+	overflow-y: hidden;
 }
 
-@keyframes cover-enter {
-	0% {clip-path: inset(0) }
+.imageReveal { 
+	animation: imageReveal 1s;
+	animation-fill-mode: forwards;
+}
+
+.imageHides { 
+	animation: imageHides 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes imageReveal{
+	0% {clip-path: inset(0 100% 0 0)}
+	100% {clip-path: inset(0)}
+}
+
+@keyframes imageHides { 
+	0% {clip-path: inset(0)}
 	100% {clip-path: inset(0 0 0 100%)}
 }
 
@@ -165,26 +180,30 @@
 .homeSmallDogPhotosVertical { 
 	display: flex; 
 	flex-direction: column;
+
 }
 
 
 .dogSmall1 { 
-	width: 17vw;
+	width: 21vw;
+	height: 23vw;
+	object-fit: cover;
+}
+
+.dogSmall2 { 
+	width: 24vw;
+	height: 19vw;
+	object-fit: cover;
+}
+
+.translatePic {
+	transform: translate(-6vw, 0);
+}
+
+.zIndex { 
+	z-index: -1;
 }
 
 
-.dogSmall2Bottom { 
-	width: 17vw;
-}
 
-.boxCircle {
-	clip-path: circle(33%);
-	transition: clip-path 1s;
-	width: 200px;
-	height: 200px;
-	background-color: blanchedalmond;
-}
 
-.boxCircle:hover {
-
-}

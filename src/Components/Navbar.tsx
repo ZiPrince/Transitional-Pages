@@ -53,7 +53,7 @@ const Navbar = () => {
 		}, 500);
 	}
 
-	console.log("clicked: " + clicked + " clickedOne? " +  clickedOne);
+	// console.log("clicked: " + clicked + " clickedOne? " +  clickedOne);
 	
 	return (
 		<>
