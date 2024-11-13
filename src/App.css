@@ -1,11 +1,10 @@
-a{
+a {
 	color: black;
 }
 
 a:hover { 
 	color: green;
 }
-
 
 .navbar { 
 	display: flex; 
@@ -18,9 +17,31 @@ a:hover {
 	z-index:1000;
 }
 
+.navbarDogPicContainer { 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navbarDogPic {
+	width: 4.2vw;
+	position:relative;
+	left: 25px;
+	border-radius: 10px;
+	opacity: 0.7;
+}
+
+.navbarDogPic:hover{
+	opacity: 1;
+	border: green 0.5px solid;
+	box-shadow: 0 4px 8px rgba(144, 219, 119, 0.3);
+	cursor: pointer;
+}
+
 .navbarRight { 
 	display: flex;
 	justify-content: right;
+	align-items: center;
 	gap: 4vw;
 	width: 100vw;
 	margin-right: 2vw;
@@ -48,16 +69,18 @@ a:hover {
 	display: inline-block;
 	overflow-x: hidden;
 	position: relative;
-	transform: translateY(-30px);
+	transform: translateY(-40px);
 	animation: moveDown 0.2s; 
 	animation-fill-mode: forwards;
 }
 /* adding the underline! */
 .innerSpanNav::after { 
-	content: "__________";
+	content: "";
+	border-bottom: black 2px solid;
 	position: absolute;
 	left: 0px;
-	height: 2.2vw;
+	top: 90%;
+	width: 100%;
 	transition: transform 0.3s;
 	transform-origin: left;
 	transform: scaleX(0);
@@ -68,7 +91,6 @@ a:hover {
 	transform: scaleX(1);
 	z-index: 9000;
 }
-
 
 @keyframes moveDown { 
 	0% {transform: translateY(-30px); opacity: 0}
@@ -87,7 +109,7 @@ a:hover {
 	background-color: rgb(241, 245, 235);
 	width: 100vw;
 	height:100vh;
-	position: absolute;
+	position: fixed;
 	animation: move 0.5s;
 	z-index: 999;
 }
@@ -96,31 +118,28 @@ a:hover {
 	background-color: rgb(255, 255, 255);
 	width: 100vw;
 	height:100vh;
-	position: absolute;
+	position: fixed;
 	animation: move 0.5s;
 	z-index:999;
 }
-
 
 .loaderOne{
 	background-color: rgb(230, 243, 211);
 	width: 100vw;
 	height:100vh;
-	position: absolute;
+	position: fixed;
 	animation: move 0.5s;
 	z-index: 999;
 }
-
 
 .loaderTwo{
-	background-color: rgb(201, 201, 230);
+	background-color: rgb(231, 243, 240);
 	width: 100vw;
 	height:100vh;
-	position: absolute;
+	position: fixed;
 	animation: move 0.5s;
 	z-index: 999;
 }
-
 
 @keyframes move { 
 	0% {height:0px}
@@ -151,7 +170,7 @@ a:hover {
 }
 
 .faq {
-	background-color: rgb(201, 201, 230);
+	background-color: rgb(231, 243, 240);
 	height: 120vh;
 }
 
@@ -164,20 +183,25 @@ a:hover {
 }
 
 .homeContainerLeft {
-	margin-left: 4%;
-	margin-top:10%;
-	font-size: 6vw;
-	width: 49%;
+	margin-left: 100px;
+	margin-top:180px;
+	width: 50%;
+	line-height: 1;
+	word-spacing: 4px;
+	width: 33vw;
+
 }
 
 .underlinedYellow { 
 	position: relative; 
-	text-decoration: none;
-	transform: scaleX(1)
-
+	text-decoration: underline yellow;
+	font-style: italic;
+	font-weight: 550;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 77px;
 }
 
-.underlinedYellow::before { 
+/* .underlinedYellow::before { 
 	content: "";
 	position: absolute;
 	display: block; 
@@ -185,8 +209,8 @@ a:hover {
 	height: 2px;
 	color: yellow;
 	transition: transform 0.3s ease;
-	transform: scaleX(0);
-}
+	transform: scaleX(1);
+} */
 
 
 .homeSmallTextOuterContainer { 
@@ -197,9 +221,9 @@ a:hover {
 .homeSmallText{ 
 	display: inline-block;
 	text-align: left;
-	font-size: 1.3vw;
+	font-size: 1.7vw;
 	padding: 10px;
-	margin: 4% 4% 0 3%; 
+	margin: 4% 12% 0 0; 
 	transform: translateY(70px);
 	opacity: 0;
 	animation: show 1s 2s;
@@ -213,14 +237,14 @@ a:hover {
 }
 
 .homePhotosContainer { 
-	margin-top:4%;
-	margin-right: -6%;
+	margin-left: 70px;
 	display: flex;
+	height: 120vh;
 }
 
 .dogBig1img{ 
 	width: 33vw;
-	height: 42vw;
+	height: 49vw;
 	object-fit:cover;
 	overflow-y: hidden;
 }
@@ -250,27 +274,27 @@ a:hover {
 .homeSmallDogPhotosVertical { 
 	display: flex; 
 	flex-direction: column;
-	height: 42vw;
+	height: 49vw;
+	width: 24vw;
 }
 
 .dogSmall1 { 
-	width: 21vw;
-	height: 30vw;
+	width: 24vw;
+	height: 34vw;
 	object-fit: cover;
 	flex: 2;
 }
 
 .dogSmall2 { 
-	width: 21vw;
-	height: 30vw;
+	width: 29vw;
+	height: 34vw;
 	object-fit: cover;
 	overflow: hidden;
 	flex: 1;
 }
 
-
 .translatePic {
-	transform: translate(-6vw, 0);
+	transform: translate(-5vw, 0);
 }
 
 .zIndex { 
@@ -287,11 +311,14 @@ a:hover {
 	transform: translateY(130px);
 	animation: moveUp 1s; 
 	animation-fill-mode: forwards;
+	padding-bottom: 1vw;
+	font-weight: 500;
+	font-size: 68px;
 }
 
 @keyframes moveUp {
-	0% {transform: translateY(140px)}
-	100% {transform: translateY(0px)}
+	0% {transform: translateY(130px); opacity:0}
+	100% {transform: translateY(0px); opacity:1}
 	 
 }
 
@@ -345,12 +372,12 @@ a:hover {
 
 .formFlex { 
 	display: flex;
-	font-size: 2rem;
+	font-size: 2vw;
 	justify-content: center;
 	margin: 5% 13% 0 1%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 	.formFlex { 
 		display: flex;
 		flex-wrap: wrap;
@@ -410,6 +437,8 @@ button:hover {
     background-position: left;
 }
 
+/* FAQ! */
+
 .faqWordContainer { 
 	margin-left: 4%;
 	font-size: 6vw;
@@ -419,6 +448,7 @@ button:hover {
 
 .jobBoxContainer {
 	display: flex;
+	gap: 2vw;
 }
 
 .outsideContainer {
@@ -428,51 +458,65 @@ button:hover {
 }
 
 .eachContainer { 
-	border: grey 1px solid;
+	border: rgb(93, 93, 93) 1px solid;
 	justify-content: left;
 	padding: 1vw;
+	width: 20vw;
+	height: 20vw;
+	box-shadow: 13px 10px rgb(203, 241, 232);
+	margin: 20px;
+}
 
+
+.jobTitle {
+	font-size: 2rem;
+	padding-top: 1vw;
 }
 
 .jobDescription {
 	font-size: 0.8rem;
-	padding-top: 2vw;
+	padding: 20px 20px;
 	text-align: left;
 }
+
+/* fooooter~ */
 
 .footerContainer { 
 	display: flex;
 	justify-content: left;
 	background-color: transparent;
+	padding-bottom: 2%;
 }
 
 .footerLeft { 
-	padding-left: 8%;
-	flex: 1;
-	padding-top:2%;
-	padding-bottom:2%;
-	font-size: 1.2rem;
-	
+	margin-left: 11%;
+	width: 25%;
+	font-size: 18px;
 }
 
 .footerRight {
-	flex: 2;
-	padding-top:2%;
-	font-size: 1.5rem;
+	font-size: 20px;
+	margin-left: 15%;
+	width: 100%;
+	font-size: 2.4vw;
 }
-
-.footerPic { 
-	width: 5vw;
-	padding-top: 2%;
-	border-radius: 50%;
-	margin-left: 2%;
-}
-
 
 .footerColumnsContainer {
 	display: flex; 
 	direction: column;
-	gap: 5vw;
+	gap: 2vw;
+}
+
+
+.footerDogPic { 
+	width: 80px;
+	border-radius: 50%;
+	opacity: 0.8;
+	margin-left:6%;
+}
+
+.footerDogPic:hover { 
+	opacity: 1;
 }
 
 .list {
@@ -485,7 +529,7 @@ button:hover {
 	content: "____________";
 	position: absolute;
 	left: 0px;
-	height: 2.2vw;
+	height: 2vw;
 	transition: transform 0.3s;
 	transform-origin: left;
 	transform: scaleX(0);
@@ -496,35 +540,74 @@ button:hover {
 }
 
 li { 
-	font-size: 1.2rem;
+	font-size: 1.2vw;
 	padding: 0.2vw;
 	overflow: hidden;
 	width: fit-content;
 	
 }
 
-.ziLinkedinFooter { 
-	padding-top: 1%;
+
+.underlineFooter {
 	position: relative;
+	left: 8%;
 }
 
-.underlineLinkedin {
-	position: relative;
-}
-
-.underlineLinkedin::after { 
-	content: "_________";
+.underlineFooter::after { 
+	content: "";
+	border-bottom: 2px solid black; 
 	position: absolute;
 	left: 0px;
-	padding-top:1.8%;
-	height: 2.2vw;
+	top: 100%;
+	width: 100%;
 	transition: transform 0.3s;
-	transform-origin: left;
+	transform-origin: center;
 	transform: scaleX(0);
 }
 
-.underlineLinkedin:hover::after {
+.underlineFooter:hover::after {
 	transform: scaleX(1);
 }
 
-.
+
+
+@media (max-width: 600px) {
+	.footerContainer { 
+		overflow: hidden;
+		display: block;
+	}
+
+	.footerLeft { 
+		width: 100vw;
+		height: 20vw;
+		display: block;
+		padding: 4% 10%;
+		font-size:11px;
+
+	}
+	.footerRight { 
+		padding: 40px 75px;
+		width: 70vw;
+		display: inline-block;
+		margin-left: -10%;
+		font-size: 10px;
+	}
+
+	.footerColumnsContainer {
+		display: block;
+	}
+
+	.madeByZiLinkedinFooter { 
+		display: block;
+	}
+
+	.list {
+		font-size: 9px;
+	}
+
+	.smallTextFooter {
+		padding: 10px 40px;
+		font-size: 10px;
+	}
+
+}

@@ -1,4 +1,4 @@
-import { Link, To, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import '../App.css';
 import { useState } from "react";
 
@@ -9,7 +9,6 @@ const Navbar = () => {
 	const [clickedHome, setHomeClicked] = useState(false);
 	const [clickedOne, setClickedOne] = useState(false); 
 	const [clickedTwo, setClickedTwo] = useState(false); 
-	const [clickedThree, setClickedThree] = useState(false); 
 
 	const navigate = useNavigate();
 
@@ -18,6 +17,7 @@ const Navbar = () => {
 		setTimeout(()=>{
 			setHomeClicked(false);
 			navigate('/');
+			window.scrollTo(0, 0);
 		}, 670);
 	}
 
@@ -26,6 +26,7 @@ const Navbar = () => {
 		setTimeout(()=>{
 			setClicked(false);
 			navigate('/About');
+			window.scrollTo(0, 0);
 		}, 600);
 	}
 
@@ -34,6 +35,7 @@ const Navbar = () => {
 		setTimeout(()=>{
 			setClickedOne(false);
 			navigate('/Contact');
+			window.scrollTo(0, 0);
 		}, 500);
 	}
 
@@ -42,6 +44,7 @@ const Navbar = () => {
 		setTimeout(()=>{
 			setClickedTwo(false);
 			navigate('/faq');
+			window.scrollTo(0, 0);
 		}, 500);
 	}	
 
@@ -52,11 +55,11 @@ const Navbar = () => {
 		<>
 		<div className="navbar">
 
-			<span className="outerSpanNavHome">
-				<span className="innerSpanNav" onClick={handleClickHome}>
-					Home
-				</span>
-			</span>
+			<div className="navbarDogPicContainer" onClick={handleClickHome}>
+				<img className="navbarDogPic" src="https://img.freepik.com/premium-photo/happy-puppy-dog-smiling-isolated-yellow-background_1028938-398070.jpg"/>
+
+			</div>
+
 {/* //~right of navbar */}
 			<div className="navbarRight">
 
@@ -67,13 +70,13 @@ const Navbar = () => {
 				</span>
 
 				<span className="outerSpanNav">
-					<span className="innerSpanNav" style={{animationDelay: "2s"}} onClick={handleClickOne}>
+					<span className="innerSpanNav" style={{animationDelay: "1.4s"}} onClick={handleClickOne}>
 						Contact Us
 					</span>
 				</span>
 
 				<span className="outerSpanNav">
-					<span className="innerSpanNav" style={{animationDelay: "3s"}} onClick={handleClickTwo}>
+					<span className="innerSpanNav" style={{animationDelay: "2s"}} onClick={handleClickTwo}>
 						FAQs
 					</span>
 				</span>

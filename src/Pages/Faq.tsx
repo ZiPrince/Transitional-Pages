@@ -16,8 +16,8 @@ const Faq = () => {
 			description: "A Maintenance Manager oversees the upkeep of facilities, equipment, and systems, ensuring they operate efficiently and reliably, while coordinating repair schedules and preventive maintenance to minimize disruptions."
 		},
 		{
-			name: "",
-			description: ""
+			name: "Backend Engineer Pupper Local",
+			description: "Dawg Backend Engineer: Crafting the Code Behind the Canine Experience!"
 		}
 	];
 

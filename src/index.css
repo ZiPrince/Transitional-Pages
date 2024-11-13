@@ -10,10 +10,10 @@ a:hover {
 
 body {
 	margin: 0;
-	min-width: 600px;
+	min-width: 500px;
 	font-size: 2vw;
 	color: rgb(1, 8, 14);
 	overflow-x: hidden;
-    font-family: "Inter",sans-serif;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
 }
-

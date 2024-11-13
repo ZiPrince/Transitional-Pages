@@ -1,6 +1,7 @@
 import '../index.css';
 import { useEffect, useState } from 'react';
 
+
 const Home = () => {
 
 	const arrayofWords = ["Build", "the", "best", "team", "with", "great", "puppers"]
@@ -8,17 +9,17 @@ const Home = () => {
 	//switch imgs every 5 seconds
 
 	const imagesLeft = [
-				"https://www.photocase.com/photos/4599074-vertical-close-up-of-cute-jack-russell-dog-wearing-eye-wear-working-at-home-office-on-computer-technology-and-pets-indoors-photocase-stock-photo-large.jpeg",
+				"https://st4.depositphotos.com/28770462/38398/i/450/depositphotos_383983602-stock-photo-three-little-white-bichon-frize.jpg",
 				"https://wallpapers.com/images/featured/cute-puppy-i85e6c4pqelymxsw.jpg"
 			]
 
 	const imagesRight = [ 
-				"https://thumbs.dreamstime.com/b/welsh-pembroke-corgi-puppy-nature-vertical-portrait-posing-beach-142857765.jpg",
+				"https://thumbs.dreamstime.com/b/pug-puppy-28583274.jpg",
 				"https://www.dogster.com/wp-content/uploads/2024/03/Golden-retriever-puppy-chewing-on-toy_Photology1971_Shutterstock.jpg"
 			]
 	const imagesRight2 = [
 		"https://thumbs.dreamstime.com/b/welsh-pembroke-corgi-puppy-nature-vertical-portrait-posing-beach-142857765.jpg",
-		"https://img.freepik.com/premium-photo/sneaky-cat_989332-3214.jpg"	]
+		"https://www.warrenphotographic.co.uk/photography/bigs/43217-Cute-Yellow-Labrador-puppy-running-white-background.jpg"	]
 	const [index, setIndex] = useState(0); 
 	const [imageAnimation, setImageAnimation] = useState("");
 
@@ -27,7 +28,6 @@ const Home = () => {
 		imageRevealFn();
 	}, []); 
 
-	
 	const imageRevealFn = () => {
 		setImageAnimation("imageReveal");
 		//calls imageHide, AFTER 5 seconds. 
@@ -92,12 +92,12 @@ const Home = () => {
 				</div>
 			</div>
 		</div> 
+		<br/><br/><br/><br/>
 
-		<hr  style={{
-			marginTop: "9%",
+		<hr style={{
 			backgroundColor: 'grey',
 			height: .5,
-			width: "96vw",
+			width: "150vw",
 		}}/>
 	</>)
 }
