@@ -1,6 +1,5 @@
 import { Link, To, useNavigate } from "react-router-dom"
 import '../App.css';
-import { animated, useSpring } from "react-spring";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
 		setTimeout(()=>{
 			setHomeClicked(false);
 			navigate('/');
-		}, 380);
+		}, 670);
 	}
 
 	const handleClick = () => {
@@ -27,14 +26,14 @@ const Navbar = () => {
 		setTimeout(()=>{
 			setClicked(false);
 			navigate('/About');
-		}, 200);
+		}, 600);
 	}
 
 	const handleClickOne = () => {
 		setClickedOne(true);
 		setTimeout(()=>{
 			setClickedOne(false);
-			navigate('/One');
+			navigate('/Contact');
 		}, 500);
 	}
 
@@ -42,35 +41,50 @@ const Navbar = () => {
 		setClickedTwo(true);
 		setTimeout(()=>{
 			setClickedTwo(false);
-			navigate('/Two');
+			navigate('/faq');
 		}, 500);
 	}	
-	const handleClickThree = () => {
-		setClickedThree(true);
-		setTimeout(()=>{
-			setClickedThree(false);
-			navigate('/Three');
-		}, 500);
-	}
+
 
 	// console.log("clicked: " + clicked + " clickedOne? " +  clickedOne);
 	
 	return (
 		<>
 		<div className="navbar">
-			<span><button onClick={handleClickHome}>Home</button></span>
-			<span className="navbarRight">
-				<button onClick={handleClick}> About </button> <br/>
-				<button onClick={handleClickOne}> One </button><br/>
-				<button onClick={handleClickTwo}> Two </button><br/>
-				<button onClick={handleClickThree}> Three </button><br/>
+
+			<span className="outerSpanNavHome">
+				<span className="innerSpanNav" onClick={handleClickHome}>
+					Home
+				</span>
 			</span>
+{/* //~right of navbar */}
+			<div className="navbarRight">
+
+				<span className="outerSpanNav">
+					<span className="innerSpanNav" style={{animationDelay: "1s"}} onClick={handleClick}>
+						About
+					</span> 
+				</span>
+
+				<span className="outerSpanNav">
+					<span className="innerSpanNav" style={{animationDelay: "2s"}} onClick={handleClickOne}>
+						Contact Us
+					</span>
+				</span>
+
+				<span className="outerSpanNav">
+					<span className="innerSpanNav" style={{animationDelay: "3s"}} onClick={handleClickTwo}>
+						FAQs
+					</span>
+				</span>
+
+			</div>
 		</div>
+
 		<div className= {clickedHome? ("homeLoader") : ("")}></div>
 		<div className= {clicked? ("loaderAbout") : ("")}></div>
 		<div className= {clickedOne? ("loaderOne") : ("")}></div>
 		<div className= {clickedTwo? ("loaderTwo") : ("")}></div>
-		<div className= {clickedThree? ("loaderThree") : ("")}></div>
 	</>
 	)
 }

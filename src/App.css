@@ -1,38 +1,90 @@
+a{
+	color: black;
+}
+
+a:hover { 
+	color: green;
+}
+
+
 .navbar { 
 	display: flex; 
-	gap: 20px;
-	background-color: rgb(176, 203, 187);
+	padding: 1.2vw 0 0.3vw;
+	position: sticky;
+    top: 0;     /* Distance from the top of the viewport */
+    width: 100vw;
+    height: 50px;
+    background-color: white;
+	z-index:1000;
 }
 
 .navbarRight { 
-	display:flex;
-	justify-content:flex-end;
+	display: flex;
+	justify-content: right;
+	gap: 4vw;
 	width: 100vw;
-	gap: 20px;
-	background-color: rgb(176, 203, 187);
+	margin-right: 2vw;
 }
 
-.navbar button { 
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
+.navbar span:hover {
 	cursor: pointer;
-	background-color: transparent;
 }
 
-/* 
-.navbar > button:hover {
-//insert code undderline} */
-
-
-.about { 
-	background-color: rgb(79, 159, 111);
-	height:100vh;
+.outerSpanNav{ 
+	display: inline-block;
+	width: fit-content;
+	overflow-y: hidden;
+	z-index: 9000;
 }
 
+.outerSpanNavHome{ 
+	display: inline-block;
+	width: 160px;
+	overflow: hidden;
+	z-index: 9000;
+}
+
+.innerSpanNav { 
+	display: inline-block;
+	overflow-x: hidden;
+	position: relative;
+	transform: translateY(-30px);
+	animation: moveDown 0.2s; 
+	animation-fill-mode: forwards;
+}
+/* adding the underline! */
+.innerSpanNav::after { 
+	content: "__________";
+	position: absolute;
+	left: 0px;
+	height: 2.2vw;
+	transition: transform 0.3s;
+	transform-origin: left;
+	transform: scaleX(0);
+	z-index: 9000;
+}
+
+.innerSpanNav:hover::after {
+	transform: scaleX(1);
+	z-index: 9000;
+}
+
+
+@keyframes moveDown { 
+	0% {transform: translateY(-30px); opacity: 0}
+	100% {transform: translateY(0px); opacity: 1}
+}
+/* title of each page */
+.title {
+	margin-left: 4%;
+	font-size: 6vw;
+	width: full; 
+	padding-top: 10%;
+
+}
 
 .loaderAbout{ 
-	background-color: rgb(79, 159, 111);
+	background-color: rgb(241, 245, 235);
 	width: 100vw;
 	height:100vh;
 	position: absolute;
@@ -40,10 +92,8 @@
 	z-index: 999;
 }
 
-
-
 .homeLoader{ 
-	background-color: rgb(241, 245, 235);
+	background-color: rgb(255, 255, 255);
 	width: 100vw;
 	height:100vh;
 	position: absolute;
@@ -53,35 +103,27 @@
 
 
 .loaderOne{
-	background-color: pink;
+	background-color: rgb(230, 243, 211);
 	width: 100vw;
 	height:100vh;
 	position: absolute;
 	animation: move 0.5s;
+	z-index: 999;
 }
 
 
 .loaderTwo{
-	background-color: chocolate;
+	background-color: rgb(201, 201, 230);
 	width: 100vw;
 	height:100vh;
 	position: absolute;
 	animation: move 0.5s;
+	z-index: 999;
 }
-
-
-.loaderThree{
-	background-color: blue;
-	width: 100vw;
-	height:100vh;
-	position: absolute;
-	animation: move 0.5s;
-}
-
 
 
 @keyframes move { 
-	0% {height:0px;}
+	0% {height:0px}
 	100% {height: 110vh};
 }
 
@@ -99,48 +141,75 @@
 
 
 .one { 
-	background-color: pink;
-	height: 100vh;
+	background-color: rgb(230, 243, 211);
+	height: 120vh;
 }
 
 .two { 
-	background-color: chocolate;
-	height: 100vh;
+	background-color: rgb(228, 202, 184);
+	height: 120vh;
 }
 
-.three {
-	background-color: blue;
-	height: 100vh;
+.faq {
+	background-color: rgb(201, 201, 230);
+	height: 120vh;
 }
 
-.four {
-	background-color: chocolate;
-	height: 100vh;
-}
-
-.outerContainer { 
+.outerContainer {
+	position: relative;
+	top: 2vw; 
 	width: 100vw;
 	height:89vh;
 	display: flex;
-
 }
 
-.homeContainer {
+.homeContainerLeft {
 	margin-left: 4%;
 	margin-top:10%;
 	font-size: 6vw;
 	width: 49%;
 }
 
-.bestTeams { 
-	text-decoration: underline yellow 10px;
-	font-style: italic;
+.underlinedYellow { 
+	position: relative; 
+	text-decoration: none;
+	transform: scaleX(1)
+
+}
+
+.underlinedYellow::before { 
+	content: "";
+	position: absolute;
+	display: block; 
+	width: 100%;
+	height: 2px;
+	color: yellow;
+	transition: transform 0.3s ease;
+	transform: scaleX(0);
+}
+
+
+.homeSmallTextOuterContainer { 
+	overflow-y: hidden;
+	display: inline-block;
 }
 
 .homeSmallText{ 
-	font-size: 1.4vw;
+	display: inline-block;
+	text-align: left;
+	font-size: 1.3vw;
 	padding: 10px;
-	margin-top: 4%;
+	margin: 4% 4% 0 3%; 
+	transform: translateY(70px);
+	opacity: 0;
+	animation: show 1s 2s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes show { 
+	0% {transform: translateY(70px); opacity: 0}
+	50% {opacity: 0.8}
+	100% {transform: translateY(0px); opacity: 1}
 }
 
 .homePhotosContainer { 
@@ -156,6 +225,7 @@
 	overflow-y: hidden;
 }
 
+/* same name as useState state var */
 .imageReveal { 
 	animation: imageReveal 1s;
 	animation-fill-mode: forwards;
@@ -180,21 +250,24 @@
 .homeSmallDogPhotosVertical { 
 	display: flex; 
 	flex-direction: column;
-
+	height: 42vw;
 }
-
 
 .dogSmall1 { 
 	width: 21vw;
-	height: 23vw;
+	height: 30vw;
 	object-fit: cover;
+	flex: 2;
 }
 
 .dogSmall2 { 
-	width: 24vw;
-	height: 19vw;
+	width: 21vw;
+	height: 30vw;
 	object-fit: cover;
+	overflow: hidden;
+	flex: 1;
 }
+
 
 .translatePic {
 	transform: translate(-6vw, 0);
@@ -204,6 +277,254 @@
 	z-index: -1;
 }
 
+.outerSpanHomeText {
+	overflow-y: hidden;
+	display: inline-block;
+}
+
+.innerSpanHomeText { 
+	display: inline-block;
+	transform: translateY(130px);
+	animation: moveUp 1s; 
+	animation-fill-mode: forwards;
+}
+
+@keyframes moveUp {
+	0% {transform: translateY(140px)}
+	100% {transform: translateY(0px)}
+	 
+}
+
+/* about  */
+.aboutContainer {
+	height: 150vh;
+	background-color: rgb(241, 245, 235);
+}
+
+
+.aboutDog1img { 
+	width:55vw;
+	height: 30vw;
+	object-fit: cover;
+
+}
+
+/* contactContainer */
+
+.contactContainer {
+	height: 130vh;
+	background-color: rgb(230, 243, 211);
+}
+
+.contactPhotosContainer {
+	display: flex;
+}
+
+.contactPic { 
+	width: 50vw;
+}
+
+.shiftRight {
+	position: relative;
+	margin-left: 4vw;
+}
+
+.outerSpanContactForm {
+	overflow-y: hidden;
+	display: inline-block;
+	margin-left: 15%;
+}
+	
+.innerSpanContactForm { 
+	display: inline-block;
+	opacity: 0;
+	transform: translateY(60px);
+	animation: moveUpSlightly 1s 0.5s; 
+	animation-fill-mode: forwards;
+}
+
+.formFlex { 
+	display: flex;
+	font-size: 2rem;
+	justify-content: center;
+	margin: 5% 13% 0 1%;
+}
+
+@media (max-width: 600px) {
+	.formFlex { 
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 0.7rem;
+		justify-content: left;
+		position: relative;
+		left:-5%;
+	}
+
+}
+
+@keyframes moveUpSlightly { 
+	0% {opacity: 0; transform: translateY(60px)}
+	100% {opacity: 1; transform: translateY(0px)}
+} 
+
+
+.formColumn { 
+	flex:1;
+	margin-left: 5vw;
+}
 
 
 
+input { 
+	padding: 10px;
+	width: 30vw;
+	color: grey;
+	border: none;
+	border-radius: 10px;
+	margin-bottom: 9px;
+}
+
+textarea {
+	width: 30vw;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+}
+
+.buttonContainer {
+	margin-left: 16vw;
+	margin-top: 5vw;
+}
+
+button { 
+	font-size: 1.5rem;
+	border-radius: 10px;
+	background: transparent; /* default color */
+	background: linear-gradient(to left, rgb(255, 255, 255) 50%, rgb(27, 156, 119) 50%) right;
+	background-size: 300% 100%;
+	transition: .5s ease-out;
+
+}
+
+button:hover { 
+    background-position: left;
+}
+
+.faqWordContainer { 
+	margin-left: 4%;
+	font-size: 6vw;
+	width: 49%;
+	padding-top: 10vw;
+}
+
+.jobBoxContainer {
+	display: flex;
+}
+
+.outsideContainer {
+	display: flex;
+	font-size: 1.2rem;
+	gap: 2rem;
+}
+
+.eachContainer { 
+	border: grey 1px solid;
+	justify-content: left;
+	padding: 1vw;
+
+}
+
+.jobDescription {
+	font-size: 0.8rem;
+	padding-top: 2vw;
+	text-align: left;
+}
+
+.footerContainer { 
+	display: flex;
+	justify-content: left;
+	background-color: transparent;
+}
+
+.footerLeft { 
+	padding-left: 8%;
+	flex: 1;
+	padding-top:2%;
+	padding-bottom:2%;
+	font-size: 1.2rem;
+	
+}
+
+.footerRight {
+	flex: 2;
+	padding-top:2%;
+	font-size: 1.5rem;
+}
+
+.footerPic { 
+	width: 5vw;
+	padding-top: 2%;
+	border-radius: 50%;
+	margin-left: 2%;
+}
+
+
+.footerColumnsContainer {
+	display: flex; 
+	direction: column;
+	gap: 5vw;
+}
+
+.list {
+	text-decoration: none;
+	list-style-type: none;
+	position: relative;
+}
+
+.list::after { 
+	content: "____________";
+	position: absolute;
+	left: 0px;
+	height: 2.2vw;
+	transition: transform 0.3s;
+	transform-origin: left;
+	transform: scaleX(0);
+}
+
+.list:hover::after {
+	transform: scaleX(1);
+}
+
+li { 
+	font-size: 1.2rem;
+	padding: 0.2vw;
+	overflow: hidden;
+	width: fit-content;
+	
+}
+
+.ziLinkedinFooter { 
+	padding-top: 1%;
+	position: relative;
+}
+
+.underlineLinkedin {
+	position: relative;
+}
+
+.underlineLinkedin::after { 
+	content: "_________";
+	position: absolute;
+	left: 0px;
+	padding-top:1.8%;
+	height: 2.2vw;
+	transition: transform 0.3s;
+	transform-origin: left;
+	transform: scaleX(0);
+}
+
+.underlineLinkedin:hover::after {
+	transform: scaleX(1);
+}
+
+.

@@ -3,10 +3,10 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Pages/Home';
 import About from './Pages/About';
-import One from './Pages/One';
-import Two from './Pages/Two';
-import Three from './Pages/Three';
+import Contact from './Pages/Contact';
+import Faq from './Pages/Faq';
 import Navbar from './Components/Navbar';
+import Footer from './Pages/Footer';
 
 function App() {
 
@@ -20,10 +20,10 @@ function App() {
 		<Routes>
 			<Route path="/" element={<Home/>} />
 			<Route path="/About" element={<About />} />
-			<Route path="/One" element={<One />} />
-			<Route path="/Two" element={<Two />} />
-			<Route path="/Three" element={<Three />} />
+			<Route path="/Contact" element={<Contact />} />
+			<Route path="/faq" element={<Faq />} />
 		</Routes>
+		<Footer />
 	</BrowserRouter>
     </>
   )

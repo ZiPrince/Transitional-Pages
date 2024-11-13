@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
 
-
+	const arrayofWords = ["Build", "the", "best", "team", "with", "great", "puppers"]
 
 	//switch imgs every 5 seconds
 
@@ -18,22 +18,15 @@ const Home = () => {
 			]
 	const imagesRight2 = [
 		"https://thumbs.dreamstime.com/b/welsh-pembroke-corgi-puppy-nature-vertical-portrait-posing-beach-142857765.jpg",
-		"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1024px-HD_transparent_picture.png",
-	]
+		"https://img.freepik.com/premium-photo/sneaky-cat_989332-3214.jpg"	]
 	const [index, setIndex] = useState(0); 
 	const [imageAnimation, setImageAnimation] = useState("");
-
-	const [isChecked, setisChecked] = useState(false);
-	console.log('what is checked now?' + isChecked);
 
 	useEffect(() => { 
 		console.log("start");
 		imageRevealFn();
 	}, []); 
 
-	const handleChangeCheck = (e: any) => {
-		setisChecked(e.target.checked);
-	}
 	
 	const imageRevealFn = () => {
 		setImageAnimation("imageReveal");
@@ -55,9 +48,9 @@ const Home = () => {
 				if (prevIndex < imagesLeft.length - 1) 
 				return prevIndex + 1;
 				return 0;
-			  })
+			})
 	
-		}, 1050);
+		}, 1200);
 		console.log('imageHidesFn');
 	}
 
@@ -69,38 +62,43 @@ const Home = () => {
 
 		
 	return (<>
-		
-		<div>
-			<label>
-				<input type="checkbox" checked = {isChecked} onChange={handleChangeCheck}/>
-				Check me~
-			</label> 
-		</div>
-		
-		
+	
 		<div className="outerContainer">
 			{/* flexbox, into 2 sections:left and right. 
 			right section: further divided into 2 sections. 
 			the second section is then divided vertically.  */}
 
-			<div className="homeContainer">
-				Build the <span className="bestTeams"> best teams</span>  with great puppers 
-				<div className="homeSmallText">
-				Recruitment of managers, experts and senior executives in Data, Innovation, Digital, Marketing and Communication.
-				</div>
+			<div className="homeContainerLeft">
+
+				{arrayofWords.map((word, i) => (
+					<><span className="outerSpanHomeText">
+					<span className="innerSpanHomeText" style={{animationDelay: `${i*0.2}s`}}>
+					<div className= {(word ==="best"|| word==="team")? "underlinedYellow" : ""}>
+						{word}
+					</div></span>&nbsp;</span></>))}
+
+				<span className="homeSmallTextOuterContainer">
+					<span className="homeSmallText">
+						Recruitment of managers, experts and senior executives in Data, Innovation, Digital, Marketing and Communication.
+					</span>
+				</span>
 			</div>
 
 			<div className="homePhotosContainer">
 				<img className= {`${imageAnimation} dogBig1img`} src={imagesLeft[index]}/>
 				<div className="homeSmallDogPhotosVertical">
-					<img className={`${imageAnimation} dogSmall1`} src={imagesRight[index]}/>
+					<img className={`${imageAnimation} dogSmall1`} src={imagesRight[index]} />
 					<img className={`${imageAnimation} dogSmall2 translatePic`}  src={imagesRight2[index]}/>
 				</div>
 			</div>
-		</div>
+		</div> 
 
-		<div>  </div> 
-
+		<hr  style={{
+			marginTop: "9%",
+			backgroundColor: 'grey',
+			height: .5,
+			width: "96vw",
+		}}/>
 	</>)
 }
 
