@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import VisibilitySensor from 'react-visibility-sensor';
 
 
 
-const Footer = () => {
-	const [isVisible, setIsVisible] = useState(false);
+const Footer = ({setIsVisible, isVisible}: {setIsVisible: any, isVisible: boolean}) => {
 
 	return (<>
 		<br/>
@@ -22,82 +21,66 @@ const Footer = () => {
 						{/* only set isVisible to true, if weCanSeeIt is true.
 						so if we scroll away it always remain true. */}
 						<Link to="/">
-							<span style={{ overflowY: "hidden", position:"relative"}}>
 								<div style={{
-									marginLeft:"4px", 
 									opacity: isVisible? 0.8 : 0,
 									position: "relative",
 									transform: isVisible? "translateY(0px)" : "translateY(-100px)",
 									transition: 'transform 300ms linear, opacity 300ms linear',
+									width: "83vw",
 								}}> 
 									<img className="footerDogPic" src="https://img.freepik.com/premium-photo/happy-puppy-dog-smiling-isolated-yellow-background_1028938-398070.jpg"/>
 								</div>
-							</span>
 						</Link>
 					
 						<br/>
 
-				
-						<div style={{ overflowY: "hidden", position:"relative"}}>
-							<div className="smallTextFooter" style={{
-								opacity: isVisible? 0.8 : 0,
-								position: "relative",
-								transform: isVisible? "translateY(-2px)" : "translateY(-90px)",
-								transition: 'transform 300ms linear, opacity 300ms linear',
-								width: "fit-content",
-							}}>
-								<a href = "https://www.linkedin.com/in/zi-wang-bb4b3169/">
-									<div className="underlineFooter">
-									💖From Zi💖
-									</div>
-								</a>
-							</div>
+						<div style={{
+							opacity: isVisible? 0.8 : 0,
+							position: "relative",
+							transform: isVisible? "translateY(-2px)" : "translateY(-90px)",
+							transition: 'transform 300ms linear, opacity 300ms linear',
+							width: "83vw",
+						}}>
+							<Link to = "https://www.linkedin.com/in/zi-wang-bb4b3169/">
+								<div className="underlineFooterZi">
+									💖 Made by Zi 💖
+								</div>
+							</Link>
 						</div>
 				</div>
 
-				{/* //~ start of LEFT OF CONTAINER:  */}
-
-		<div style={{overflowY: "hidden"}}>
-				<div style={{
-					marginLeft:"10%", 
-					opacity: isVisible? 0.8 : 0,
-					position: "relative",
-					transform: isVisible? "translateY(0px)" : "translateY(-100px)",
-					transition: 'transform 300ms linear, opacity 300ms linear',
-					display: "flex",
-				}}> 
+				{/* //~ start of RIGHT SIDE:  */}
 
 				<div className="footerRight">
-					Recruitment and headhunting consultancy for Executives and Managers puppers.
 
+					<div style={{
+						opacity: isVisible? 0.8 : 0,
+						transform: isVisible? "translateY(0px)" : "translateY(-100px)",
+						transition: 'transform 300ms linear, opacity 300ms linear',
+						width: "100%",
+					}}> 
+						
+					<div style={{paddingBottom: "1.5vw"}}>Puppers Consultancy </div>
 					{/*//~ within rightSection, 3 columns */}
-					<div className="footerColumnsContainer">
-					
-					
-							<ul>
-								<li><div className="list">Our Team</div></li>
-								<li><div className="list">Our Culture</div></li>
-								<li><div className="list">Our Candidates</div></li>
-							</ul>
-						<div>
-							<ul>
-								<li><div className="list">Our Team</div></li>
-								<li><div className="list">Our Culture</div></li>
-								<li><div className="list">Our Candidates</div></li>
-							</ul>			
+						<div className="footerColumnsContainer">
+							<div className="eachColumn">
+								<div className="list">Our Team</div>
+								<div className="list">Culture</div>
+								<div className="list">Candidates</div>
+							</div>
+
+							<div className="eachColumn">
+								<div className="list">Our Team</div>
+								<div className="list">Culture</div>
+								<div className="list">Candidates</div>		
+							</div>
+
+							<div className="eachColumn">
+								<div className="list">Our Team</div>
+								<div className="list">Culture</div>
+								<div className="list">Candidates</div>
+							</div>
 						</div>
-
-						<div>
-							<ul>
-								<li><div className="list">Our Team</div></li>
-								<li><div className="list">Our Culture</div></li>
-								<li><div className="list">Our Candidates</div></li>
-							</ul>			
-						</div>
-					</div>
-				</div>
-
-
 					</div>
 				</div>
 			</div>

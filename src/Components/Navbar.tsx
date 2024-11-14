@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import '../App.css';
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({setIsVisible, isVisible}: {setIsVisible: any, isVisible: boolean}) => {
 
 	//keeping track when to start animation:
 	const [clicked, setClicked] = useState(false);
@@ -18,6 +18,7 @@ const Navbar = () => {
 			setHomeClicked(false);
 			navigate('/');
 			window.scrollTo(0, 0);
+			setIsVisible(false);
 		}, 670);
 	}
 
@@ -27,6 +28,7 @@ const Navbar = () => {
 			setClicked(false);
 			navigate('/About');
 			window.scrollTo(0, 0);
+			setIsVisible(false);
 		}, 600);
 	}
 
@@ -36,6 +38,7 @@ const Navbar = () => {
 			setClickedOne(false);
 			navigate('/Contact');
 			window.scrollTo(0, 0);
+			setIsVisible(false);
 		}, 500);
 	}
 
@@ -45,6 +48,7 @@ const Navbar = () => {
 			setClickedTwo(false);
 			navigate('/faq');
 			window.scrollTo(0, 0);
+			setIsVisible(false);
 		}, 500);
 	}	
 

@@ -7,15 +7,23 @@ import Contact from './Pages/Contact';
 import Faq from './Pages/Faq';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import { useEffect, useState } from 'react';
 
 function App() {
 
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(()=>{
+		setIsVisible(false);
+	}, []);
+
+	console.log("isVisible is it even triggered after pressing navbar button?" + isVisible);
 
   return (
     <>
 
 	<BrowserRouter>
-		<Navbar />
+		<Navbar setIsVisible={setIsVisible} isVisible={isVisible} />
 
 		<Routes>
 			<Route path="/" element={<Home/>} />
@@ -23,7 +31,7 @@ function App() {
 			<Route path="/Contact" element={<Contact />} />
 			<Route path="/faq" element={<Faq />} />
 		</Routes>
-		<Footer />
+		<Footer setIsVisible={setIsVisible} isVisible={isVisible}/>
 	</BrowserRouter>
     </>
   )

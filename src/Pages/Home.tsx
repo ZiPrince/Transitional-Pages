@@ -32,16 +32,16 @@ const Home = () => {
 		setImageAnimation("imageReveal");
 		//calls imageHide, AFTER 5 seconds. 
 		setTimeout(() => {
-			console.log('call imageHidesFn');
+			// console.log('call imageHidesFn');
 			imageHidesFn();
 		},5000);
-		console.log("imageRevealFn");
+		// console.log("imageRevealFn");
 	}
 
 	const imageHidesFn = () => {
 		setImageAnimation("imageHides");
 		setTimeout(() => {
-			console.log("call imageRevealFn");
+			// console.log("call imageRevealFn");
 			imageRevealFn();
 			
 			setIndex((prevIndex) => {
@@ -51,7 +51,7 @@ const Home = () => {
 			})
 	
 		}, 1200);
-		console.log('imageHidesFn');
+		// console.log('imageHidesFn');
 	}
 
 

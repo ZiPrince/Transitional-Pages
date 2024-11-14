@@ -1,3 +1,7 @@
+.testingBorder {
+	border: black 2px solid;
+}
+
 a {
 	color: black;
 }
@@ -12,9 +16,10 @@ a:hover {
 	position: sticky;
     top: 0;     /* Distance from the top of the viewport */
     width: 100vw;
-    height: 50px;
+    height: 75px;
     background-color: white;
 	z-index:1000;
+	font-size: 1.8vw;
 }
 
 .navbarDogPicContainer { 
@@ -24,11 +29,12 @@ a:hover {
 }
 
 .navbarDogPic {
-	width: 4.2vw;
+	width: 3.7vw;
 	position:relative;
 	left: 25px;
 	border-radius: 10px;
 	opacity: 0.7;
+	top:-3px;
 }
 
 .navbarDogPic:hover{
@@ -108,7 +114,7 @@ a:hover {
 .loaderAbout{ 
 	background-color: rgb(241, 245, 235);
 	width: 100vw;
-	height:100vh;
+	height:90vh;
 	position: fixed;
 	animation: move 0.5s;
 	z-index: 999;
@@ -135,7 +141,7 @@ a:hover {
 .loaderTwo{
 	background-color: rgb(231, 243, 240);
 	width: 100vw;
-	height:100vh;
+	height:150vh;
 	position: fixed;
 	animation: move 0.5s;
 	z-index: 999;
@@ -171,14 +177,14 @@ a:hover {
 
 .faq {
 	background-color: rgb(231, 243, 240);
-	height: 120vh;
+	height: fit-content;
 }
 
 .outerContainer {
 	position: relative;
 	top: 2vw; 
 	width: 100vw;
-	height:89vh;
+	height:100vh;
 	display: flex;
 }
 
@@ -187,7 +193,7 @@ a:hover {
 	margin-top:180px;
 	width: 50%;
 	line-height: 1;
-	word-spacing: 4px;
+	word-spacing: 0.7vw;
 	width: 33vw;
 
 }
@@ -222,12 +228,13 @@ a:hover {
 	display: inline-block;
 	text-align: left;
 	font-size: 1.7vw;
-	padding: 10px;
+	padding: 2vw 0;
 	margin: 4% 12% 0 0; 
 	transform: translateY(70px);
 	opacity: 0;
 	animation: show 1s 2s;
 	animation-fill-mode: forwards;
+
 }
 
 @keyframes show { 
@@ -324,18 +331,35 @@ a:hover {
 
 /* about  */
 .aboutContainer {
-	height: 150vh;
+	display: flex;
+	height: fit-content;
 	background-color: rgb(241, 245, 235);
 }
 
+.aboutPhotoContainer { 
 
-.aboutDog1img { 
-	width:55vw;
-	height: 30vw;
-	object-fit: cover;
 
 }
+.aboutDogImg { 
+	width:50vw;
+	height: 100vh;
+	object-fit: cover;
+}
 
+.aboutSmallText { 
+	width: 40vw;
+	font-size: 2vw;
+	padding: 6vw 0;
+	transform: translateY(70px);
+	opacity: 0;
+	animation: show 1s 2s;
+	animation-fill-mode: forwards;
+}
+
+.aboutText {
+	display: block;
+	padding: 7vw;
+}
 /* contactContainer */
 
 .contactContainer {
@@ -440,31 +464,28 @@ button:hover {
 /* FAQ! */
 
 .faqWordContainer { 
+	display: block;
+	font-size: 6rem;
+	width: 99%;
+	padding-top: 7vw;
 	margin-left: 4%;
-	font-size: 6vw;
-	width: 49%;
-	padding-top: 10vw;
+	
 }
 
 .jobBoxContainer {
-	display: flex;
 	gap: 2vw;
-}
-
-.outsideContainer {
 	display: flex;
-	font-size: 1.2rem;
-	gap: 2rem;
+	padding: 3%;
+	flex-wrap: wrap;
 }
 
 .eachContainer { 
+	display: block;
 	border: rgb(93, 93, 93) 1px solid;
-	justify-content: left;
 	padding: 1vw;
-	width: 20vw;
-	height: 20vw;
+	width: 300px;
+	height: 230px;
 	box-shadow: 13px 10px rgb(203, 241, 232);
-	margin: 20px;
 }
 
 
@@ -482,37 +503,45 @@ button:hover {
 /* fooooter~ */
 
 .footerContainer { 
+	margin-top:2%;
 	display: flex;
-	justify-content: left;
-	background-color: transparent;
-	padding-bottom: 2%;
+	padding: 2% 2%;
+	gap: 10vw;
 }
 
-.footerLeft { 
-	margin-left: 11%;
-	width: 25%;
-	font-size: 18px;
+.footerLeft {
+	font-size: 22px;
+	width: 400px;
+	font-size: 1.5vw;
+	font-weight: bold;
+	height: fit-content;
 }
 
 .footerRight {
-	font-size: 20px;
-	margin-left: 15%;
-	width: 100%;
-	font-size: 2.4vw;
+	margin-left: 9vw;
+	font-size: 30px;
+	padding: 0 2%;
+	font-size: 2vw;
+	width: 100vw;
 }
 
 .footerColumnsContainer {
 	display: flex; 
 	direction: column;
-	gap: 2vw;
+	justify-content: left;
+	flex-wrap: wrap; /* Allow items to wrap if there's not enough space */
+	gap: 4vw;
 }
 
+.eachColumn { 
+	padding: 1% 2%;
+}
 
 .footerDogPic { 
-	width: 80px;
-	border-radius: 50%;
+	width: 6vw;
+	border-radius: 40%;
 	opacity: 0.8;
-	margin-left:6%;
+	margin-left: 3vw;
 }
 
 .footerDogPic:hover { 
@@ -520,18 +549,20 @@ button:hover {
 }
 
 .list {
-	text-decoration: none;
-	list-style-type: none;
+	width: fit-content;
 	position: relative;
+	font-size: 1.5vw;
 }
 
 .list::after { 
-	content: "____________";
+	content: "";
+	border-bottom: 2px solid black; 
 	position: absolute;
 	left: 0px;
-	height: 2vw;
-	transition: transform 0.3s;
+	top: 95%;
+	width: 100%;
 	transform-origin: left;
+	transition: transform 0.3s;
 	transform: scaleX(0);
 }
 
@@ -539,75 +570,68 @@ button:hover {
 	transform: scaleX(1);
 }
 
-li { 
-	font-size: 1.2vw;
-	padding: 0.2vw;
-	overflow: hidden;
-	width: fit-content;
-	
-}
-
-
-.underlineFooter {
+.underlineFooterZi {
 	position: relative;
-	left: 8%;
+	display: inline-block; /* Inline-block so underline width matches text */
 }
 
-.underlineFooter::after { 
-	content: "";
-	border-bottom: 2px solid black; 
+.underlineFooterZi::after { 
+	content:"";
+	border-bottom: black 2px solid;
 	position: absolute;
-	left: 0px;
-	top: 100%;
-	width: 100%;
+	left: 5px;
+	top: 90%;
+	width: 90%;
 	transition: transform 0.3s;
 	transform-origin: center;
 	transform: scaleX(0);
 }
 
-.underlineFooter:hover::after {
+.underlineFooterZi:hover::after {
 	transform: scaleX(1);
 }
 
-
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 	.footerContainer { 
-		overflow: hidden;
 		display: block;
-	}
+}
 
 	.footerLeft { 
-		width: 100vw;
-		height: 20vw;
-		display: block;
-		padding: 4% 10%;
+		width: 80vw;
+		text-align: center;
 		font-size:11px;
-
+		margin-bottom: 0.5vw;
 	}
+
 	.footerRight { 
-		padding: 40px 75px;
-		width: 70vw;
-		display: inline-block;
-		margin-left: -10%;
+		width: 80vw;
+		text-align: center;
 		font-size: 10px;
+		margin-left: 0;
 	}
 
 	.footerColumnsContainer {
-		display: block;
+		width: 80vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2vw;
 	}
 
-	.madeByZiLinkedinFooter { 
-		display: block;
+	.eachColumn { 
+		padding: 0.03vw 0;
 	}
 
 	.list {
 		font-size: 9px;
+		padding: 0;
 	}
 
-	.smallTextFooter {
-		padding: 10px 40px;
-		font-size: 10px;
+	.footerDogPic { 
+		margin-left: 0%;
+		width: 60px;
+		border-radius: 50%;
+		opacity: 0.8;
 	}
-
 }
