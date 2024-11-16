@@ -1,99 +1,94 @@
 import { useNavigate } from "react-router-dom"
 import '../App.css';
 import { useState } from "react";
+import {useMediaQuery} from "./useMediaQuery";
+import Hamburger from "./Hamburger";
 
-const Navbar = ({setIsVisible, isVisible}: {setIsVisible: any, isVisible: boolean}) => {
 
-	//keeping track when to start animation:
-	const [clicked, setClicked] = useState(false);
-	const [clickedHome, setHomeClicked] = useState(false);
-	const [clickedOne, setClickedOne] = useState(false); 
-	const [clickedTwo, setClickedTwo] = useState(false); 
+interface Navbar {
+	page: string;
+	animationDelay: string;
+	param: string;
+}
+
+const Navbar = ({setIsVisible, isVisible, pathname, setPathname}: 
+	{setIsVisible: any, isVisible: boolean, pathname: string, setPathname: any}) => {
+
+	//keeping track when to start animation/play loader screens:
+	// curPage:used as CSSname 
+	const [curPage, setCurPage] = useState("");
+
+	//mapping over buttons in nav
+
+	
+
+	const navButtons : Navbar = [
+
+		
+	]
+
+	const isMobile = useMediaQuery(`(max-width: ${650}px)`);
+
+	// clicked[url] = true;
+	// curPage = url;
 
 	const navigate = useNavigate();
 
-	const handleClickHome = () => {
-		setHomeClicked(true);
+	const handleClick = (page: string) => {
+		setCurPage(page);
 		setTimeout(()=>{
-			setHomeClicked(false);
-			navigate('/');
+			setCurPage("-");
+			navigate(`/${page}`);
 			window.scrollTo(0, 0);
 			setIsVisible(false);
+			setPathname(window.location.pathname);
 		}, 670);
 	}
 
-	const handleClick = () => {
-		setClicked(true);
-		setTimeout(()=>{
-			setClicked(false);
-			navigate('/About');
-			window.scrollTo(0, 0);
-			setIsVisible(false);
-		}, 600);
-	}
+	return isMobile?
+		
+			(<>
+				<div className="navbarHelloPupsMobile" onClick={()=>{handleClick('')}}>
+					<span className="navbarHelloPups outerSpan">
+						<span className="innerSpanNav" style={{animationDelay: "0.5s"}} >
+						Hello Pups 					
+						</span>
+					</span>
 
-	const handleClickOne = () => {
-		setClickedOne(true);
-		setTimeout(()=>{
-			setClickedOne(false);
-			navigate('/Contact');
-			window.scrollTo(0, 0);
-			setIsVisible(false);
-		}, 500);
-	}
+					<Hamburger navButtons={navButtons} /> 
+				</div>
 
-	const handleClickTwo = () => {
-		setClickedTwo(true);
-		setTimeout(()=>{
-			setClickedTwo(false);
-			navigate('/faq');
-			window.scrollTo(0, 0);
-			setIsVisible(false);
-		}, 500);
-	}	
+			</>) :
 
+//!NOT MOBILE
 
-	// console.log("clicked: " + clicked + " clickedOne? " +  clickedOne);
-	
-	return (
-		<>
-		<div className="navbar">
+			(<> <div className="navbar">
 
-			<div className="navbarDogPicContainer" onClick={handleClickHome}>
-				<img className="navbarDogPic" src="https://img.freepik.com/premium-photo/happy-puppy-dog-smiling-isolated-yellow-background_1028938-398070.jpg"/>
+				<div className="navbarHelloPupsContainer">
+					<span className="navbarHelloPups outerSpan">
+						<span className="innerSpanNav" style={{animationDelay: "0.5s"}} onClick={()=>handleClick('')}>
+						Hello Pups
+						</span>
+					</span>
 
-			</div>
+				</div>
 
-{/* //~right of navbar */}
-			<div className="navbarRight">
+				{/* //~right of navbar */}
 
-				<span className="outerSpanNav">
-					<span className="innerSpanNav" style={{animationDelay: "1s"}} onClick={handleClick}>
-						About
+				<div className="navbarRight">
+				{navButtons.map(navButton=> 
+					(<span className="outerSpanNav">
+					<span className="innerSpanNav" style={{animationDelay: navButton.animationDelay}} onClick={()=>handleClick(navButton.param)}>
+						{navButton.page}
 					</span> 
-				</span>
-
-				<span className="outerSpanNav">
-					<span className="innerSpanNav" style={{animationDelay: "1.4s"}} onClick={handleClickOne}>
-						Contact Us
-					</span>
-				</span>
-
-				<span className="outerSpanNav">
-					<span className="innerSpanNav" style={{animationDelay: "2s"}} onClick={handleClickTwo}>
-						FAQs
-					</span>
-				</span>
-
+					</span>))}
+				</div>
 			</div>
-		</div>
 
-		<div className= {clickedHome? ("homeLoader") : ("")}></div>
-		<div className= {clicked? ("loaderAbout") : ("")}></div>
-		<div className= {clickedOne? ("loaderOne") : ("")}></div>
-		<div className= {clickedTwo? ("loaderTwo") : ("")}></div>
-	</>
-	)
+			<div className={`${curPage}Loader`} ></div>
+			{/* <div className= {curPage}></div> </>)  */}
+			{/* ${}: not javascript brackets  */}
+		</>)
 }
 
 export default Navbar

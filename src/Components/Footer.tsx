@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import VisibilitySensor from 'react-visibility-sensor';
 
@@ -20,27 +19,18 @@ const Footer = ({setIsVisible, isVisible}: {setIsVisible: any, isVisible: boolea
 					
 						{/* only set isVisible to true, if weCanSeeIt is true.
 						so if we scroll away it always remain true. */}
-						<Link to="/">
-								<div style={{
+						<div style={{
 									opacity: isVisible? 0.8 : 0,
 									position: "relative",
 									transform: isVisible? "translateY(0px)" : "translateY(-100px)",
 									transition: 'transform 300ms linear, opacity 300ms linear',
 									width: "83vw",
 								}}> 
-									<img className="footerDogPic" src="https://img.freepik.com/premium-photo/happy-puppy-dog-smiling-isolated-yellow-background_1028938-398070.jpg"/>
-								</div>
-						</Link>
+							<Link to="/">
+								<img onClick={()=> {window.scrollTo(0, 0)}} className="footerDogPic" src="https://img.freepik.com/premium-photo/happy-puppy-dog-smiling-isolated-yellow-background_1028938-398070.jpg"/>
+							</Link>
 					
-						<br/>
-
-						<div style={{
-							opacity: isVisible? 0.8 : 0,
-							position: "relative",
-							transform: isVisible? "translateY(-2px)" : "translateY(-90px)",
-							transition: 'transform 300ms linear, opacity 300ms linear',
-							width: "83vw",
-						}}>
+							<br/>
 							<Link to = "https://www.linkedin.com/in/zi-wang-bb4b3169/">
 								<div className="underlineFooterZi">
 									💖 Made by Zi 💖
@@ -55,8 +45,8 @@ const Footer = ({setIsVisible, isVisible}: {setIsVisible: any, isVisible: boolea
 
 					<div style={{
 						opacity: isVisible? 0.8 : 0,
-						transform: isVisible? "translateY(0px)" : "translateY(-100px)",
-						transition: 'transform 300ms linear, opacity 300ms linear',
+						transform: isVisible? "translateY(0px)" : "translateY(-70px)",
+						transition: 'transform 500ms ease-out, opacity 500ms ease-out',
 						width: "100%",
 					}}> 
 						

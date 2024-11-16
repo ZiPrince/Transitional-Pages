@@ -77,7 +77,7 @@ const About = () => {
 			{arrayofWords.map((word, i) => (
 					<>
 					<span className="outerSpanHomeText"><span className="innerSpanHomeText" style={{animationDelay: `${i*0.2}s`}}>
-						<div className= {(word ==="best"|| word==="team")? "underlinedYellow" : ""}>
+						<div className= {(word ==="best"|| word==="team")? "underlinedYellow aboutBigText" : "aboutBigText"}>
 							{word}&nbsp;
 						</div>
 					</span></span></>))}

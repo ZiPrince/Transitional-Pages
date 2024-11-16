@@ -22,6 +22,7 @@ const Home = () => {
 		"https://www.warrenphotographic.co.uk/photography/bigs/43217-Cute-Yellow-Labrador-puppy-running-white-background.jpg"	]
 	const [index, setIndex] = useState(0); 
 	const [imageAnimation, setImageAnimation] = useState("");
+	const [imageZoomIn, setImageZoomIn] = useState("");
 
 	useEffect(() => { 
 		console.log("start");
@@ -30,6 +31,12 @@ const Home = () => {
 
 	const imageRevealFn = () => {
 		setImageAnimation("imageReveal");
+
+		// setTimeout(()=> { 
+		// 	setImageZoomIn('zoomIn');
+		// }, 3000);
+		// setImageZoomIn("zoomIn");
+
 		//calls imageHide, AFTER 5 seconds. 
 		setTimeout(() => {
 			// console.log('call imageHidesFn');
@@ -43,7 +50,6 @@ const Home = () => {
 		setTimeout(() => {
 			// console.log("call imageRevealFn");
 			imageRevealFn();
-			
 			setIndex((prevIndex) => {
 				if (prevIndex < imagesLeft.length - 1) 
 				return prevIndex + 1;
@@ -51,20 +57,12 @@ const Home = () => {
 			})
 	
 		}, 1200);
-		// console.log('imageHidesFn');
 	}
-
-
-
-	// const onClickChangeCss = (className : string) => {
-	// 	setImageAnimation(className);
-	// }
-
 		
 	return (<>
 	
 		<div className="outerContainer">
-			{/* flexbox, into 2 sections:left and right. 
+			{/*//~ flexbox, into 2 sections:left and right. 
 			right section: further divided into 2 sections. 
 			the second section is then divided vertically.  */}
 
@@ -85,10 +83,10 @@ const Home = () => {
 			</div>
 
 			<div className="homePhotosContainer">
-				<img className= {`${imageAnimation} dogBig1img`} src={imagesLeft[index]}/>
+				<img className= {`${imageAnimation} ${imageZoomIn} dogBig1img`} src={imagesLeft[index]}/>
 				<div className="homeSmallDogPhotosVertical">
-					<img className={`${imageAnimation} dogSmall1`} src={imagesRight[index]} />
-					<img className={`${imageAnimation} dogSmall2 translatePic`}  src={imagesRight2[index]}/>
+					<img className={`${imageAnimation} ${imageZoomIn} dogSmall1`} src={imagesRight[index]} />
+					<img className={`${imageAnimation} ${imageZoomIn} dogSmall2 translatePic`}  src={imagesRight2[index]}/>
 				</div>
 			</div>
 		</div> 

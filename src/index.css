@@ -2,6 +2,7 @@
 body {
 	margin: 0;
 	min-width: 500px;
+	height: fit-content;
 	color: rgb(1, 8, 14);
     font-family: "Inter", sans-serif;
     font-weight: 400;

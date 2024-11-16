@@ -12,7 +12,7 @@ a:hover {
 
 .navbar { 
 	display: flex; 
-	padding: 1.2vw 0 0.3vw;
+	padding: 1.2vw 0.3vw;
 	position: sticky;
     top: 0;     /* Distance from the top of the viewport */
     width: 100vw;
@@ -20,27 +20,51 @@ a:hover {
     background-color: white;
 	z-index:1000;
 	font-size: 1.8vw;
+	opacity: 0.95;
 }
 
-.navbarDogPicContainer { 
+.navbarHelloPupsContainer { 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.navbarDogPic {
-	width: 3.7vw;
+/* MOBILE */
+.navbarHelloPupsMobile{ 
+	display: flex;
+	justify-content: space-between;
+}
+
+.hamburgerMenu { 
+	text-align: right;
+}
+
+.hamburgerMenu div {
+	transform: translateX(-2vw);
+	text-align: right;
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
+
+.moveLeft {
+	position: absolute;
+	width: 20vw;
+}
+
+.navbarHelloPups {
+	width: 15vw;
 	position:relative;
 	left: 25px;
-	border-radius: 10px;
 	opacity: 0.7;
 	top:-3px;
 }
 
-.navbarDogPic:hover{
+.navbarHelloPups:hover{
 	opacity: 1;
-	border: green 0.5px solid;
-	box-shadow: 0 4px 8px rgba(144, 219, 119, 0.3);
+	color: black;
 	cursor: pointer;
 }
 
@@ -64,19 +88,12 @@ a:hover {
 	z-index: 9000;
 }
 
-.outerSpanNavHome{ 
-	display: inline-block;
-	width: 160px;
-	overflow: hidden;
-	z-index: 9000;
-}
-
 .innerSpanNav { 
 	display: inline-block;
-	overflow-x: hidden;
 	position: relative;
-	transform: translateY(-40px);
-	animation: moveDown 0.2s; 
+	transform: translateY(-80px);
+	transition: transform 500ms ease-out;
+	animation: moveDown 0.5s; 
 	animation-fill-mode: forwards;
 }
 /* adding the underline! */
@@ -87,7 +104,7 @@ a:hover {
 	left: 0px;
 	top: 90%;
 	width: 100%;
-	transition: transform 0.3s;
+	transition: transform 0.3s ease-out;
 	transform-origin: left;
 	transform: scaleX(0);
 	z-index: 9000;
@@ -108,10 +125,9 @@ a:hover {
 	font-size: 6vw;
 	width: full; 
 	padding-top: 10%;
-
 }
 
-.loaderAbout{ 
+.aboutLoader{ 
 	background-color: rgb(241, 245, 235);
 	width: 100vw;
 	height:90vh;
@@ -120,7 +136,7 @@ a:hover {
 	z-index: 999;
 }
 
-.homeLoader{ 
+.Loader{ 
 	background-color: rgb(255, 255, 255);
 	width: 100vw;
 	height:100vh;
@@ -129,7 +145,7 @@ a:hover {
 	z-index:999;
 }
 
-.loaderOne{
+.contactLoader{
 	background-color: rgb(230, 243, 211);
 	width: 100vw;
 	height:100vh;
@@ -138,7 +154,7 @@ a:hover {
 	z-index: 999;
 }
 
-.loaderTwo{
+.faqLoader{
 	background-color: rgb(231, 243, 240);
 	width: 100vw;
 	height:150vh;
@@ -180,22 +196,24 @@ a:hover {
 	height: fit-content;
 }
 
+/* HOME PAGE! */
+
 .outerContainer {
 	position: relative;
 	top: 2vw; 
 	width: 100vw;
-	height:100vh;
+	height:fit-content;
 	display: flex;
+	font-size: 5vw;
 }
 
 .homeContainerLeft {
-	margin-left: 100px;
-	margin-top:180px;
+	margin-left: 6vw;
+	margin-top:8vw;
 	width: 50%;
-	line-height: 1;
-	word-spacing: 0.7vw;
-	width: 33vw;
-
+	height: fit-content;
+	line-height: 1.1;
+	min-width: 37vw;
 }
 
 .underlinedYellow { 
@@ -204,19 +222,7 @@ a:hover {
 	font-style: italic;
 	font-weight: 550;
 	font-family: 'Times New Roman', Times, serif;
-	font-size: 77px;
 }
-
-/* .underlinedYellow::before { 
-	content: "";
-	position: absolute;
-	display: block; 
-	width: 100%;
-	height: 2px;
-	color: yellow;
-	transition: transform 0.3s ease;
-	transform: scaleX(1);
-} */
 
 
 .homeSmallTextOuterContainer { 
@@ -227,7 +233,7 @@ a:hover {
 .homeSmallText{ 
 	display: inline-block;
 	text-align: left;
-	font-size: 1.7vw;
+	font-size: 1.5vw;
 	padding: 2vw 0;
 	margin: 4% 12% 0 0; 
 	transform: translateY(70px);
@@ -246,7 +252,8 @@ a:hover {
 .homePhotosContainer { 
 	margin-left: 70px;
 	display: flex;
-	height: 120vh;
+	height:  fit-content;
+
 }
 
 .dogBig1img{ 
@@ -254,27 +261,6 @@ a:hover {
 	height: 49vw;
 	object-fit:cover;
 	overflow-y: hidden;
-}
-
-/* same name as useState state var */
-.imageReveal { 
-	animation: imageReveal 1s;
-	animation-fill-mode: forwards;
-}
-
-.imageHides { 
-	animation: imageHides 1s;
-	animation-fill-mode: forwards;
-}
-
-@keyframes imageReveal{
-	0% {clip-path: inset(0 100% 0 0)}
-	100% {clip-path: inset(0)}
-}
-
-@keyframes imageHides { 
-	0% {clip-path: inset(0)}
-	100% {clip-path: inset(0 0 0 100%)}
 }
 
 
@@ -300,12 +286,105 @@ a:hover {
 	flex: 1;
 }
 
+/* same name as useState state var */
+.imageReveal { 
+	animation: imageReveal 1s;
+	animation-fill-mode: forwards;
+}
+
+.imageHides { 
+	animation: imageHides 1s;
+	animation-fill-mode: forwards;
+}
+
+.zoomIn { 
+	animation: imageZoomIn 1s;
+	animation-fill-mode: forwards;
+	animation-delay: 2s;
+}
+
+@keyframes imageReveal{
+	0% {clip-path: inset(0 100% 0 0)}
+	100% {clip-path: inset(0)}
+}
+
+@keyframes imageHides { 
+	0% {clip-path: inset(0)}
+	100% {clip-path: inset(0 0 0 100%)}
+}
+
+@keyframes imageZoomIn {
+	0% {transform: scaleX(1)}
+	100% {transform: scaleX(1.1)}
+}
+
+
 .translatePic {
 	transform: translate(-5vw, 0);
 }
 
 .zIndex { 
 	z-index: -1;
+}
+
+/* media query for HOMEPAGE  */
+
+@media (max-width: 650px) {
+
+	.outerContainer {
+		display: block;
+		top: 2vw; 
+		width: 100vw;
+		height:fit-content;
+	}
+	
+	.homeContainerLeft {
+		margin-left: 6vw;
+		margin-top:10vw;
+		width: 100%;
+	}
+
+	.homePhotosContainer { 
+		width: 100vw;
+		margin:10vw 0 0 0;
+		height: fit-content;
+	}
+
+	.homeSmallText{ 
+		display: inline-block;
+		text-align: left;
+		font-size: 2vw;
+	}
+
+	.dogBig1img{ 
+		width: 66vw;
+		height: 49vw;
+		object-fit:cover;
+		overflow-y: hidden;
+	}
+
+	.homeSmallDogPhotosVertical { 
+		display: flex; 
+		flex-direction: column;
+		height: 49vw;
+		width: 33vw;
+	}
+
+	.dogSmall1 { 
+		width: 33vw;
+		height: 34vw;
+		object-fit: cover;
+		flex: 2;
+	}
+
+.dogSmall2 { 
+	width: 39vw;
+	height: 34vw;
+	object-fit: cover;
+	overflow: hidden;
+	flex: 1;
+}
+
 }
 
 .outerSpanHomeText {
@@ -318,9 +397,6 @@ a:hover {
 	transform: translateY(130px);
 	animation: moveUp 1s; 
 	animation-fill-mode: forwards;
-	padding-bottom: 1vw;
-	font-weight: 500;
-	font-size: 68px;
 }
 
 @keyframes moveUp {
@@ -336,19 +412,19 @@ a:hover {
 	background-color: rgb(241, 245, 235);
 }
 
-.aboutPhotoContainer { 
-
-
+.aboutBigText { 
+	font-size: 5vw;
 }
+
 .aboutDogImg { 
 	width:50vw;
-	height: 100vh;
+	height: 70vw;
 	object-fit: cover;
 }
 
 .aboutSmallText { 
 	width: 40vw;
-	font-size: 2vw;
+	font-size: 2.5vw;
 	padding: 6vw 0;
 	transform: translateY(70px);
 	opacity: 0;
@@ -358,7 +434,42 @@ a:hover {
 
 .aboutText {
 	display: block;
-	padding: 7vw;
+	padding: 1vw;
+}
+
+@media (max-width: 650px) {
+	.aboutContainer {
+		height: fit-content;
+		background-color: rgb(241, 245, 235);
+		display: block;
+	}
+
+	.aboutBigText { 
+		font-size: 5vw;
+	}
+
+	.aboutDogImg { 
+		display: block;
+		width:100vw;
+		height: 70vw;
+		object-fit: cover;
+	}
+
+	.aboutSmallText {
+		display: block; 
+		width: 90vw;
+		font-size: 2.5vw;
+		padding: 6vw 0;
+		transform: translateY(70px);
+		opacity: 0;
+		animation: show 1s 2s;
+		animation-fill-mode: forwards;
+	}
+
+	.aboutText {
+		display: block;
+		padding: 7vw;
+	}
 }
 /* contactContainer */
 
@@ -541,7 +652,7 @@ button:hover {
 	width: 6vw;
 	border-radius: 40%;
 	opacity: 0.8;
-	margin-left: 3vw;
+	margin: 0 0 1.2vw 3vw;
 }
 
 .footerDogPic:hover { 
@@ -594,6 +705,7 @@ button:hover {
 @media (max-width: 700px) {
 	.footerContainer { 
 		display: block;
+		height: fit-content;
 }
 
 	.footerLeft { 
@@ -629,7 +741,7 @@ button:hover {
 	}
 
 	.footerDogPic { 
-		margin-left: 0%;
+		margin: 2vw 0 0 0;
 		width: 60px;
 		border-radius: 50%;
 		opacity: 0.8;

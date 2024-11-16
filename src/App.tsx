@@ -12,18 +12,21 @@ import { useEffect, useState } from 'react';
 function App() {
 
 	const [isVisible, setIsVisible] = useState(false);
+	const [pathname, setPathname] = useState("");
 
 	useEffect(()=>{
 		setIsVisible(false);
+		setPathname(window.location.pathname);
 	}, []);
 
 	console.log("isVisible is it even triggered after pressing navbar button?" + isVisible);
 
   return (
     <>
+	<div> window.location.pathname: {pathname}</div>
 
 	<BrowserRouter>
-		<Navbar setIsVisible={setIsVisible} isVisible={isVisible} />
+		<Navbar setIsVisible={setIsVisible} isVisible={isVisible} pathname={pathname} setPathname={setPathname} />
 
 		<Routes>
 			<Route path="/" element={<Home/>} />
